@@ -10,6 +10,8 @@ wizardA.Attack(wizardB);
 wizardB.Attack(wizardA);
 wizardA.Attack(wizardB);
 
+wizardB.Heal();
+
 Console.WriteLine("Permainan Selesai...\n");
 Console.WriteLine("Statistik Akhir");
 wizardA.ShowStats();
@@ -39,4 +41,23 @@ public class Wizard
         Console.WriteLine($"Sisa energi {enemyObj.Name}: {enemyObj.Energy}");
     }
 
+    public void Heal()
+    {
+        if (Energy >= 100)
+        {
+            Console.WriteLine("Gagal melakukan heal. Energy sudah mencapai maksimum");
+        }
+        else
+        {
+            if (Energy > 95)
+            {
+                Energy = 100;
+            }
+            else
+            {
+                Energy += 5;
+            }
+            Console.WriteLine($"{Name} berhasil melakukan heal. Energy meningkat menjadi {Energy}");
+        }
+    }
 }
